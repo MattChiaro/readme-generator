@@ -1,32 +1,42 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  if (!license) {
+  if (license.name === 'none') {
     return "";
   }
-  return `![${license}](https://img.shields.io/badge/license-${license}-blue.svg)`
+  return `![${license.name}](https://img.shields.io/badge/license-${license.badgeID}-blue.svg)`
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) { }
+function renderLicenseLink(license) { 
+  if (license.name === 'none') {
+    return "";
+  }
+  return `${license.link}`
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (!license) {
+  if (license.name === 'none') {
     return "";
   }
   return `## License`
  }
 
- function isCollaborators(response) {
+ function renderCreditsSection(response) {
   if (response === 'No') {
     return "";  
   }
-  return `## Credits
-  
-  ${data.collaboratorNames}`
+  return `## Credits`
+}
+
+function renderCollaborators(response) {
+  if (!response) {
+    return "";
+  }
+  return `${response}`
 }
 
 // TODO: Create a function to generate markdown for README
@@ -35,14 +45,7 @@ function generateMarkdown(data) {
 
 ## Description
          
-  ${data.description}
-
-## Table of Contents 
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+${data.description}
 
 ## Installation
 
@@ -52,17 +55,15 @@ ${data.installation}
 
 ${data.usage}
 
-${isCollaborators(data.collaborators)}
+${renderCreditsSection(data.collaborators)}
+
+${renderCollaborators(data.collaboratorNames)}
 
 ${renderLicenseSection(data.license)}
 
-${data.license}
-
----
-
-## Badges
-
 ${renderLicenseBadge(data.license)}
+
+${renderLicenseLink(data.license)}
 
 ## How to Contribute
 
@@ -70,9 +71,7 @@ ${data.contribution}
 
 ## Tests
 
-
-
-`
+${data.test}`
 }
 
 module.exports = {generateMarkdown};
