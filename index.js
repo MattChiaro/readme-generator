@@ -9,57 +9,52 @@ const questions = [
         type: 'input',
         name: 'title',
         message: 'What is the title of your project?',
-        choices: [{
-            name: 'Ford',
-            value: {
-                make: 'Ford',
-                model: 'F150',
-                year: 2019
-            }
-        }, {
-            name: 'Chevy',
-            value: {
-                make: 'Chevy',
-                model: 'Silverado',
-                year: 2009
-            }
-        }, {
-            name: 'Dodge',
-            value: {
-                make: 'Dodge',
-                model: 'Ram',
-                year: 2005
-            }
-        }, {
-            name: 'Toyota',
-            value: {
-                make: 'Toyota',
-                model: 'Tacoma',
-                year: 2015
-            }
-        }, {
-            name: 'Honda',
-            value: {
-                make: 'Honda',
-                model: 'Ridgeline',
-                year: 2018
-            }
-        }
-        ]
-    }
-];
+    }, {
+        type: 'input',
+        name: 'description',
+        message: 'Please provide a brief description',
+    }, {
+        type: 'input',
+        name: 'installation',
+        message: 'Do you have any notes for installation?',
+    }, {
+        type: 'input',
+        name: 'usage',
+        message: 'What about usage info?',
+    }, {    
+        type: 'input',
+        name: 'contribution',
+        message: 'Please provide contribution guidelines for your project.',
+    }, {
+        type: 'input',
+        name: 'test',
+        message: 'Please provide test instructions.',
+    }, { 
+        type: 'list',
+        name: 'license',
+        message: 'Please select a license.',
+        choices: ['MIT', 'Apache', 'GPL', 'BSD', 'None'],
+    }, {
+        type: 'input',
+        name: 'github',
+        message: 'What is your github username?',
+    }, {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email?',
+    },
+]
+
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) { }
 
 // TODO: Create a function to initialize app
 async function init() {
-    const {car} = await inquirer.prompt(questions);
+    const { car } = await inquirer.prompt(questions);
 
     console.log(car);
-   
 
-    //console.log('Hello World');
 }
 
 // Function call to initialize app
