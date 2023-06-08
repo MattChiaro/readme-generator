@@ -6,13 +6,15 @@ The purpose of this project was to create a CLI application to generate professi
 
 ## Installation
 
-Clone the repository from github using ```git clone https://github.com/mattchiaro/readme-generator.git``` or download it as a ZIP file. Upon downloading, run ```npm i inquirer@8.2.4``` to install all necessary node modules.
+Clone the repository from github using ```git clone https://github.com/mattchiaro/readme-generator.git``` or download it as a ZIP file.
 
 ## Usage
+ Upon downloading, run ```npm i inquirer@8.2.4``` to install all necessary node modules.
 
 from the command line within your repo, run ```node index.js```. Follow the prompts and you are done!
 
-
+![initial CLI interface](./images/initial-CLI.png)
+![completed CLI interface](./images/completed-app.png)
 
 
 
