@@ -75,7 +75,7 @@ ${data.test}
 
 ## Questions/Contact
 
-If you have any questions, please contact me at ${data.email}. You can also find me on GitHub at [${data.username}](github.com/${data.username}).`
+If you have any questions, please contact me at ${data.email}. You can also find me on GitHub at [${data.github}](github.com/${data.github}).`
 }
 
 module.exports = {generateMarkdown};
