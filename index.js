@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const markdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -20,16 +20,16 @@ const questions = [
     }, {
         type: 'input',
         name: 'usage',
-        message: 'What about usage info?',
-    }, {    
+        message: 'What do people need to do to use your project?',
+    }, {
         type: 'input',
         name: 'contribution',
-        message: 'Please provide contribution guidelines for your project.',
+        message: 'If people want to contribute, what should they know?',
     }, {
         type: 'input',
         name: 'test',
         message: 'Please provide test instructions.',
-    }, { 
+    }, {
         type: 'list',
         name: 'license',
         message: 'Please select a license.',
@@ -42,18 +42,33 @@ const questions = [
         type: 'input',
         name: 'email',
         message: 'What is your email?',
-    },
+    }, {
+        type: 'list',
+        name: 'collaborators',
+        message: 'did you have any collaborators?',
+        choices: ['Yes', 'No'],
+    }, {
+        type: 'input',
+        name: 'collaboratorNames',
+        message: 'Please list your collaborators.',
+        when: (answers) => answers.collaborators === 'Yes'
+    }
+
 ]
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, markdown.generateMarkdown(data), (err) =>
+        err ? console.error(err) : console.log('Success!')
+    );
+}
 
 // TODO: Create a function to initialize app
 async function init() {
-    const { car } = await inquirer.prompt(questions);
+    const { response } = await inquirer.prompt(questions);
 
-    console.log(car);
+    writeToFile('README.md', response);
 
 }
 
