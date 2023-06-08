@@ -33,7 +33,36 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Please select a license.',
-        choices: ['MIT', 'Apache', 'GPL', 'BSD', 'None'],
+        choices: [{
+            name: 'MIT',
+            value: {
+                name: 'MIT',
+                badgeID: "MIT",
+                link: 'https://opensource.org/licenses/MIT'
+            },
+        }, {
+            name: 'Apache',
+            value: {
+                name: 'Apache',
+                badgeID: "Apache_2.0",
+                link: 'https://opensource.org/licenses/Apache-2.0'
+            },
+        }, {
+            name: 'GNU',
+            value: {
+                name: 'GNU',
+                badgeID: "GPLv3",
+                link: 'https://www.gnu.org/licenses/gpl-3.0'
+            }
+        }, {
+            name: 'none',
+            value: {
+                name: 'none',
+                badgeID: "none",
+                link: 'none'
+            }
+        }]
+        ,
     }, {
         type: 'input',
         name: 'github',
@@ -68,7 +97,6 @@ function writeToFile(fileName, data) {
 async function init() {
     inquirer.prompt(questions)
         .then((answers) => {
-            console.log(answers);
             writeToFile('README.md', answers);
         })
 
