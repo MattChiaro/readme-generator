@@ -30,5 +30,5 @@ Feel free to contribute by forking the repository on github.
 
 ## Questions/Contact
 
-If you have any questions, please contact me at Matt@MchMedia.co. You can also find me on GitHub at [MattChiaro](github.com/MattChiaro).
+If you have any questions, please contact me at Matt@MchMedia.co. You can also find me on GitHub at [MattChiaro](https://github.com/MattChiaro).
 
